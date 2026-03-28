@@ -658,57 +658,129 @@ ul { list-style: none; }
 }
 
 
-/* ── Feature 1: Personalised Greeting Input (in navbar) ── */
-.nav-greeting {
+/* ── Feature 1: Inline Greeting Input (sits beside greeting text) ── */
+.greeting-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.greeting-input-row {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.nav-greeting-label {
+.greeting-input-label {
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text-secondary);
-  font-family: var(--font-mono);
   white-space: nowrap;
 }
 
-.nav-name-input {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--text-primary);
-  width: 160px;
+/* Greeting text below the input row */
+.greeting-inline .hero-greeting {
+  margin-bottom: 0;
+}
+
+.greeting-name-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--accent);
+  border-radius: 0;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent);
+  width: 130px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: border-color var(--transition), width var(--transition);
 }
 
-.nav-name-input:focus {
+.greeting-name-input:focus {
   outline: none;
-  border-color: var(--accent);
-  width: 200px;
+  width: 170px;
 }
 
-.nav-name-input::placeholder {
+.greeting-name-input::placeholder {
   color: var(--text-secondary);
+  text-transform: none;
+  font-size: 0.82rem;
+  letter-spacing: 0;
 }
 
 .greeting-clear {
   background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: none;
   color: var(--text-secondary);
   font-size: 0.78rem;
-  padding: 6px 8px;
+  padding: 2px 4px;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: color var(--transition);
   flex-shrink: 0;
 }
 
 .greeting-clear:hover {
-  border-color: #ff5f56;
   color: #ff5f56;
+}
+
+/* ── Feature 3: Advice API Widget ── */
+.advice-widget {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  max-width: 420px;
+  margin-top: 24px;
+}
+
+.advice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.advice-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.advice-refresh {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.advice-refresh:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.advice-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+.advice-error {
+  font-size: 0.82rem;
+  color: #ff5f56;
+  line-height: 1.5;
 }
 
 /* ── Feature 2: Project Filter Bar ── */
@@ -784,6 +856,8 @@ ul { list-style: none; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .advice-widget { max-width: 100%; }
+
   .hero {
     flex-direction: column;
     padding: calc(var(--nav-height) + 40px) 24px 64px;
@@ -814,7 +888,6 @@ ul { list-style: none; }
 @media (max-width: 640px) {
   .navbar { padding: 0 20px; }
   .nav-links { display: none; }
-  .nav-greeting { display: none; }
   .hamburger { display: flex; }
   .section { padding: 72px 0; }
   .about-details { grid-template-columns: 1fr; }
