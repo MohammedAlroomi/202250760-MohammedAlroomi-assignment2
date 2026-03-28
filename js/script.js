@@ -271,6 +271,51 @@ function initContactForm() {
 }
 
 /* ============================================================
+   FEATURE 3: ADVICE API
+      - Fetches a random advice from api.adviceslip.com on load
+      - Shows a loading state while fetching
+      - Shows a friendly error message if fetch fails
+      - Refresh button fetches new advice
+      - localStorage already handles theme + name (Data Handling req.)
+   ============================================================ */
+async function fetchAdvice() {
+  const textEl    = document.getElementById('adviceText');
+  const errorEl   = document.getElementById('adviceError');
+  const refreshBtn = document.getElementById('adviceRefresh');
+
+  if (!textEl) return;
+
+  // Show loading state
+  textEl.style.opacity = '0.4';
+  textEl.textContent   = 'Loading advice…';
+  if (errorEl) errorEl.hidden = true;
+  if (refreshBtn) refreshBtn.disabled = true;
+
+  try {
+    // Fetch from public Advice Slip API — no key required
+    const res  = await fetch('https://api.adviceslip.com/advice', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Network response was not ok');
+    const data = await res.json();
+    textEl.textContent   = `"${data.slip.advice}"`;
+    textEl.style.opacity = '1';
+  } catch {
+    // Show error message — never leave the user without feedback
+    textEl.textContent = '';
+    if (errorEl) errorEl.hidden = false;
+  } finally {
+    if (refreshBtn) refreshBtn.disabled = false;
+  }
+}
+
+function initAdviceWidget() {
+  const refreshBtn = document.getElementById('adviceRefresh');
+  // Load advice on page load
+  fetchAdvice();
+  // Refresh button fetches new advice
+  refreshBtn?.addEventListener('click', fetchAdvice);
+}
+
+/* ============================================================
    INIT – Run everything when DOM is ready
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -283,6 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();          // Smooth scroll for nav links
   initScrollAnimations();      // Fade-in on scroll
   initContactForm();           // Form validation
+  initAdviceWidget();          // Advice API fetch
 
   console.log('%c Mohammed Alroomi | Portfolio', 'color: #00d4aa; font-size: 14px; font-weight: bold;');
   console.log('%c Assignment 2 – Interactive Features | SWE 363 | KFUPM', 'color: #9090a0;');
