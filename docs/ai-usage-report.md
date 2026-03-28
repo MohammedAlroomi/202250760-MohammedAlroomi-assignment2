@@ -9,55 +9,38 @@
 
 ## Tools Used & Use Cases
 
-I used two AI tools: **Claude (claude.ai)** as my primary development assistant, and **ChatGPT (OpenAI)** for concept understanding and clarification.
+For this assignment I used two AI tools. Claude was my main tool for building the project, and ChatGPT was something I turned to when I wanted to understand a concept before moving forward.
 
-### Claude (claude.ai) — Primary Development Tool
+### Claude (claude.ai)
 
-Claude was used iteratively across every part of the assignment. I described requirements, reviewed outputs, and made deliberate decisions about what to keep, change, or simplify before including anything in the project.
+I used Claude as a coding assistant throughout the assignment. The way I worked with it was simple: I decided what to build, described it to Claude, reviewed what it gave me, and then modified or rejected it based on my own judgment before anything made it into the project.
 
-- **Feature Planning:** I described the Assignment 2 requirements and asked Claude to suggest which features best fit a portfolio. It proposed the personalised greeting and project filter — I agreed and directed the scope.
-- **Code Generation:** Claude generated the HTML, CSS, and JS for the greeting input, filter bar, and advice widget. I reviewed each piece before including it — for example, I rejected a tab-based navigation system Claude proposed as it conflicted with the A1 single-page layout.
-- **Feature Design Decision:** Claude initially placed the greeting input inside the navbar. After reviewing it, I found it felt disconnected from the greeting text. I instructed Claude to move it directly above the greeting line so the cause and effect would be visually clear.
-- **API Integration:** Claude suggested `api.adviceslip.com` as a no-key-required public API. It implemented `fetchAdvice()` including the loading state, error handling, and refresh button. I reviewed the async/await pattern to ensure I understood it.
-- **Bug Identification:** Claude identified that the form success message had no animation and added a `fadeInUp` keyframe — a small but meaningful UX improvement.
-- **Code Review:** I asked Claude to audit the stylesheet for unused CSS selectors, directly addressing a deduction from Assignment 1.
-- **Documentation:** Claude drafted this report and the technical documentation, which I reviewed and edited for accuracy.
+For the features, I was the one who decided on the personalised greeting input and the project filter after thinking about what would actually make sense on a portfolio site. Claude offered a tab-based navigation system at one point and I rejected it entirely because I knew it would break the layout I had built in Assignment 1.
 
-### ChatGPT (OpenAI) — Concept Understanding Tool
+A good example of how I reviewed and corrected Claude's output was the greeting input placement. Claude put it in the navbar, and when I saw the result I could tell it felt wrong. The input was too far from the text it was supposed to change. I went back, explained the problem, and told it exactly where I wanted it. That decision came from me noticing the issue, not Claude.
 
-Used exclusively to understand concepts — not for code generation.
+I also asked Claude to review the CSS for unused selectors after Assignment 1 feedback, and to add an animation to the form success message. Both were things I identified as problems and directed Claude to fix.
 
-- **Fetch API & Promises:** Before reviewing the advice widget code, I asked ChatGPT to explain how `async/await` and `fetch()` work.
-- **localStorage vs sessionStorage:** ChatGPT clarified the difference, which led me to deliberately upgrade from `sessionStorage` (A1) to `localStorage` (A2).
-- **CSS Keyframe Animations:** After Claude added `fadeInUp`, I asked ChatGPT to explain how `@keyframes` works before accepting the code.
+### ChatGPT (OpenAI)
+
+I used ChatGPT only for understanding concepts, never for writing code. Before reading through the advice widget code, I asked it to explain async/await and the Fetch API so I could properly review what Claude had written. I did the same with localStorage vs sessionStorage, which helped me make a conscious decision to switch from sessionStorage in Assignment 1 to localStorage here. And after the fadeInUp animation was added, I asked ChatGPT to explain CSS keyframes so I understood exactly what was in my own file before accepting it.
 
 ---
 
 ## Benefits & Challenges
 
-**Benefits:** AI reduced time spent on boilerplate, letting me focus on design decisions. The iterative approach — describe, review, refine — meant I never accepted anything I didn't understand. Claude also caught the unused CSS issue proactively, directly addressing A1 feedback.
+The main benefit was speed. Handling the repetitive parts through AI meant I could spend more time on decisions rather than syntax. But I made sure that everything that went into the project passed through my own review first. If something looked off or didn't match what I had in mind, I sent it back.
 
-**Challenges:** Claude's first attempt placed the greeting input in the navbar, which looked clean but disconnected it from its effect. Guiding it through two revisions reinforced that AI output reflects the quality of the prompt — reviewing results critically is essential.
+The challenge was that Claude does not always get things right on the first try. The greeting input took two rounds of corrections before it looked the way I wanted. Each time I had to clearly explain what was wrong and what I expected instead. That back and forth was actually useful because it forced me to think precisely about what I wanted rather than just accepting whatever came back.
 
 ---
 
 ## Learning Outcomes
 
-- **Async/Await and Fetch API:** The advice widget introduced me to the Fetch API with proper error handling. I learned why `cache: 'no-cache'` was needed to avoid repeated cached responses.
-- **CSS Keyframe Animations:** Adding `fadeInUp` gave me hands-on practice with `@keyframes` and how the `animation` property references them.
-- **localStorage vs sessionStorage:** I upgraded preferences to `localStorage` after understanding that it persists across browser sessions, unlike `sessionStorage`.
-- **IntersectionObserver reuse:** I extended the A1 scroll animation observer to target new elements in A2, reinforcing how the observer pattern works.
+This assignment gave me real experience with the Fetch API and async/await, including understanding why cache: 'no-cache' matters. I also properly learned CSS keyframe animations for the first time by making sure I understood them before accepting the code. Switching from sessionStorage to localStorage was a small change that came from actually understanding the difference. And working with IntersectionObserver again helped me get more comfortable with it.
 
 ---
 
-## Responsible Use & Modifications
+## Responsible Use
 
-All AI output was treated as a draft. Key decisions I made:
-
-- **Feature selection:** I chose which two features to implement — Claude offered options, I made the call.
-- **Layout decisions:** I rejected the tab navigation system and kept the original single-page layout.
-- **Greeting input placement:** I identified the navbar placement was wrong and specified the correct position.
-- **Simplification:** I removed a character counter Claude added to the message field as it added unnecessary complexity.
-- **Content:** All personal information and project entries are my own, unchanged from Assignment 1.
-
-I can explain every function and CSS rule in this project. Claude accelerated my work — all design decisions were mine.
+Every decision in this project was mine. I chose the features, rejected what did not fit, and corrected what was wrong. All AI output was reviewed and modified before being included. All personal content is my own from Assignment 1. I can explain every part of the code. Claude and ChatGPT made the work faster, but I was the one thinking through every step.
