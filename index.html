@@ -15,16 +15,28 @@
   <nav class="navbar" id="navbar">
     <div class="nav-logo">MA<span class="accent">.</span></div>
     <ul class="nav-links">
-      <!-- Clicking a nav link activates the matching tab -->
-      <li><a href="#" class="nav-tab-link" data-tab="about">About</a></li>
-      <li><a href="#" class="nav-tab-link" data-tab="projects">Projects</a></li>
-      <li><a href="#" class="nav-tab-link" data-tab="experience">Experience</a></li>
-      <li><a href="#" class="nav-tab-link" data-tab="contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <!-- FEATURE 1: Name input — type your name to personalise the greeting below -->
+    <div class="nav-greeting">
+      <span class="nav-greeting-label">👋 What's your name?</span>
+      <input
+        type="text"
+        id="visitorName"
+        class="nav-name-input"
+        placeholder="Enter your name…"
+        maxlength="30"
+        autocomplete="off"
+        title="Type your name to personalise the greeting"
+      />
+      <button class="greeting-clear" id="greetingClear" aria-label="Clear name" title="Clear saved name">✕</button>
+    </div>
     <!-- Click to switch between dark and light mode -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch between dark and light mode">
       <span class="theme-icon">☀️</span>
-      <span class="theme-label">Light</span>
     </button>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -35,42 +47,21 @@
   <section class="hero" id="hero">
     <div class="hero-bg-grid"></div>
     <div class="hero-content">
-      <!-- Time-based greeting, personalised with user's name -->
+      <!-- Greeting updates with time of day + visitor's name -->
       <p class="hero-greeting" id="greeting">Good evening</p>
       <h1 class="hero-name">Mohammed<br /><span class="accent">Alroomi</span></h1>
       <p class="hero-tagline">Software Engineer · Data &amp; AI · Product Builder</p>
       <p class="hero-sub">
         Bridging engineering rigor and product thinking to build software that actually matters.
       </p>
-
-      <!-- ── FEATURE 1: Personalised Greeting Input ──
-           Type your name → greeting updates instantly.
-           Your name is saved and remembered on your next visit. -->
-      <div class="greeting-input-wrapper">
-        <label for="visitorName" class="greeting-input-label">
-          👋 What's your name? — I'll personalise the greeting for you.
-        </label>
-        <div class="greeting-input-row">
-          <input
-            type="text"
-            id="visitorName"
-            class="greeting-input"
-            placeholder="Enter your name…"
-            maxlength="30"
-            autocomplete="off"
-          />
-          <button class="greeting-clear" id="greetingClear" aria-label="Clear name" title="Clear saved name">✕</button>
-        </div>
-      </div>
-
       <div class="hero-cta">
-        <a href="#" class="btn btn-primary nav-tab-link" data-tab="projects">View My Work</a>
-        <a href="#" class="btn btn-outline nav-tab-link" data-tab="contact">Get In Touch</a>
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
-      <p class="hero-hint">Use <span class="accent">☀️</span> in the nav to switch themes · Use the tabs below to navigate</p>
+      <p class="hero-hint">↑ Enter your name in the nav to personalise this greeting · Use <span class="accent">☀️</span> to switch themes</p>
     </div>
     <div class="hero-terminal">
-      <div class="terminal-hint-label">// live snapshot — read only</div>
+      <div class="terminal-hint-label">// interactive terminal — read-only snapshot</div>
       <div class="terminal-bar">
         <span class="dot red"></span>
         <span class="dot yellow"></span>
@@ -88,350 +79,314 @@
     </div>
   </section>
 
-  <!-- ========== FEATURE 2: TAB NAVIGATION ──
-       Click a tab to show only that section.
-       Only one section is visible at a time. ========== -->
-  <div class="tab-nav-wrapper" id="tabNavWrapper">
-    <div class="tab-nav" role="tablist" aria-label="Portfolio sections">
-      <button class="tab-btn active" data-tab="about"      role="tab" aria-selected="true">About</button>
-      <button class="tab-btn"        data-tab="projects"   role="tab" aria-selected="false">Projects</button>
-      <button class="tab-btn"        data-tab="experience" role="tab" aria-selected="false">Experience</button>
-      <button class="tab-btn"        data-tab="contact"    role="tab" aria-selected="false">Contact</button>
-    </div>
-  </div>
-
-  <!-- ========== ABOUT TAB ========== -->
-  <section class="tab-section active" id="tab-about" role="tabpanel">
-    <div class="section">
-      <div class="container">
-        <h2 class="section-title">About <span class="accent">Me</span></h2>
-        <div class="about-grid">
-          <div class="about-image-wrapper">
-            <div class="about-image-placeholder">
-              <span>MA</span>
-            </div>
-          </div>
-          <div class="about-text">
-            <p class="about-tagline">"Engineering clarity out of complexity."</p>
-            <p>
-              I'm a Software Engineering student at King Fahd University of Petroleum and Minerals (KFUPM),
-              combining a strong technical foundation with real-world experience in product management,
-              data science, and AI development.
-            </p>
-            <p>
-              From building machine learning models in coursework to shipping product features during my
-              internship at Okoul, I bring both analytical depth and a builder's mindset to every challenge
-              I take on.
-            </p>
-            <div class="about-details">
-              <div class="detail-item">
-                <span class="detail-label">University</span>
-                <span class="detail-value">KFUPM</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Major</span>
-                <span class="detail-value">Software Engineering</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Location</span>
-                <span class="detail-value">Riyadh, Saudi Arabia</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Email</span>
-                <span class="detail-value">
-                  <a href="mailto:mohammedalroomi@gmail.com">mohammedalroomi@gmail.com</a>
-                </span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Status</span>
-                <span class="detail-value status-open">Open to Opportunities</span>
-              </div>
-            </div>
-            <div class="achievements-strip">
-              <div class="achievement-badge">
-                <span class="badge-icon">🏆</span>
-                <span>McKinsey EDAD<br/>Competition Winner</span>
-              </div>
-              <div class="achievement-badge">
-                <span class="badge-icon">🎓</span>
-                <span>Dean's<br/>Honor List</span>
-              </div>
-              <div class="achievement-badge">
-                <span class="badge-icon">⚡</span>
-                <span>Early<br/>KFUPM Admission</span>
-              </div>
-            </div>
-          </div>
+  <!-- ========== ABOUT ========== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <div class="about-image-placeholder"><span>MA</span></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PROJECTS TAB ========== -->
-  <section class="tab-section section-alt" id="tab-projects" role="tabpanel" hidden>
-    <div class="section">
-      <div class="container">
-        <h2 class="section-title">My <span class="accent">Projects</span></h2>
-        <p class="section-sub">Academic projects spanning data science, AI, and database systems.</p>
-
-        <!-- ── FEATURE 3: Project Filter ──
-             Click a category button to show only matching projects.
-             "All" shows every project. -->
-        <div class="filter-bar">
-          <span class="filter-hint">Filter by category:</span>
-          <div class="filter-buttons" role="group" aria-label="Filter projects by category">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="data-science">Data Science</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="database">Database</button>
-          </div>
-        </div>
-
-        <!-- Empty state — shown when no projects match the active filter -->
-        <p class="empty-state" id="emptyState" hidden>No projects found for this category.</p>
-
-        <div class="projects-grid" id="projectsGrid">
-
-          <!-- Project 1 -->
-          <div class="project-card" data-category="data-science">
-            <div class="project-image">
-              <img src="assets/images/Project1.webp" alt="Data Science Project"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="project-img-fallback"><span>📊</span></div>
+        <div class="about-text">
+          <p class="about-tagline">"Engineering clarity out of complexity."</p>
+          <p>
+            I'm a Software Engineering student at King Fahd University of Petroleum and Minerals (KFUPM),
+            combining a strong technical foundation with real-world experience in product management,
+            data science, and AI development.
+          </p>
+          <p>
+            From building machine learning models in coursework to shipping product features during my
+            internship at Okoul, I bring both analytical depth and a builder's mindset to every challenge
+            I take on.
+          </p>
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-label">University</span>
+              <span class="detail-value">KFUPM</span>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Pandas</span>
-                <span class="tag">Scikit-learn</span>
-                <span class="tag">ISE291</span>
-              </div>
-              <h3 class="project-title">Predictive Analytics Model</h3>
-              <p class="project-desc">
-                Developed as part of ISE291 (Introduction to Data Science), this project covered
-                the full data science lifecycle — data cleaning, exploratory analysis, feature engineering,
-                and training predictive models using regression and classification techniques.
-              </p>
+            <div class="detail-item">
+              <span class="detail-label">Major</span>
+              <span class="detail-value">Software Engineering</span>
             </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card" data-category="ai">
-            <div class="project-image">
-              <img src="assets/images/Project2.jpeg" alt="AI Project"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="project-img-fallback"><span>🤖</span></div>
+            <div class="detail-item">
+              <span class="detail-label">Location</span>
+              <span class="detail-value">Riyadh, Saudi Arabia</span>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">AI</span>
-                <span class="tag">COE292</span>
-              </div>
-              <h3 class="project-title">AI Classification System</h3>
-              <p class="project-desc">
-                Built as part of COE292 (Introduction to Artificial Intelligence), our team designed
-                and implemented an AI classification pipeline — covering model architecture selection,
-                training, hyperparameter tuning, and performance evaluation.
-              </p>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card" data-category="database">
-            <div class="project-image">
-              <img src="assets/images/Project3.jpeg" alt="Database Systems Project"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="project-img-fallback"><span>🗄️</span></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span class="tag">SQL</span>
-                <span class="tag">MySQL Workbench</span>
-                <span class="tag">ERD</span>
-                <span class="tag">ICS321</span>
-              </div>
-              <h3 class="project-title">Relational Database System</h3>
-              <p class="project-desc">
-                Designed and built a fully normalized relational database for ICS321 (Database Systems)
-                using MySQL Workbench. The project spanned ER diagram modeling, schema normalization,
-                complex SQL queries, stored procedures, and performance optimization.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== EXPERIENCE TAB ========== -->
-  <section class="tab-section" id="tab-experience" role="tabpanel" hidden>
-    <div class="section">
-      <div class="container">
-        <h2 class="section-title">My <span class="accent">Experience</span></h2>
-        <p class="section-sub">Roles, programs, and responsibilities that shaped my professional path.</p>
-        <div class="experience-list">
-
-          <!-- McKinsey -->
-          <div class="exp-card">
-            <div class="exp-left">
-              <div class="exp-logo">Mc</div>
-              <div class="exp-line"></div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <div>
-                  <h3 class="exp-role">McKinsey EDAD Program</h3>
-                  <p class="exp-company">McKinsey &amp; Company</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-date">Nov 2025</span>
-                  <span class="exp-badge win">🏆 1st Place</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Completed a selective one-month program combining virtual and in-person training focused
-                on structured problem-solving, executive communication, and presentation skills.
-                Applied these skills in a concluding case competition — analyzing the case, developing
-                recommendations, and presenting a final solution as part of a team.
-                <strong>Won first place</strong> among all competing teams.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Consulting</span>
-                <span class="tag">Problem Solving</span>
-                <span class="tag">Case Competition</span>
-                <span class="tag">Presentation</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Okoul -->
-          <div class="exp-card">
-            <div class="exp-left">
-              <div class="exp-logo">Ok</div>
-              <div class="exp-line"></div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <div>
-                  <h3 class="exp-role">Product Manager — Internship</h3>
-                  <p class="exp-company">Okoul</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-date">Jun – Sep 2024</span>
-                  <span class="exp-location">Dhahran, SA</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Joined Okoul after freshman year to gain hands-on product management experience.
-                Contributed to UI design, analyzed product and user data to inform decisions,
-                and helped define product requirements. Synthesized user feedback into actionable
-                insights and supported weekly planning and delivery cycles in a fast-paced environment.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Product Management</span>
-                <span class="tag">UI/UX</span>
-                <span class="tag">Figma</span>
-                <span class="tag">User Research</span>
-                <span class="tag">Agile</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- SAC -->
-          <div class="exp-card">
-            <div class="exp-left">
-              <div class="exp-logo">KF</div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <div>
-                  <h3 class="exp-role">Student Advisory Council Member</h3>
-                  <p class="exp-company">King Fahd University of Petroleum &amp; Minerals</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-date">Apr 2024 – Present</span>
-                  <span class="exp-location">Dhahran, SA</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Member of the Technology Committee, contributing to university-wide student experience
-                initiatives. Key contribution includes participating in the design and development of
-                the Student Advisory Council website — translating student needs into a digital solution.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Leadership</span>
-                <span class="tag">Web Development</span>
-                <span class="tag">Student Government</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT TAB ========== -->
-  <section class="tab-section section-alt" id="tab-contact" role="tabpanel" hidden>
-    <div class="section">
-      <div class="container">
-        <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
-        <p class="section-sub">Have a project in mind or just want to connect? Send me a message.</p>
-        <!-- Form guide: all fields required before submitting -->
-        <p class="form-guide">
-          📋 Fill in all fields — name, a valid email, and a message of at least 10 characters — then hit <strong>Send Message</strong>.
-        </p>
-        <div class="contact-wrapper">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your full name" required />
-              <span class="form-error" id="nameError"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required />
-              <span class="form-error" id="emailError"></span>
-            </div>
-            <div class="form-group">
-              <label for="message">
-                Message
-                <span class="char-hint">(min. 10 characters)</span>
-              </label>
-              <textarea id="message" name="message" rows="5"
-                placeholder="Tell me about your project or idea..." required></textarea>
-              <span class="char-count" id="charCount">0 characters</span>
-              <span class="form-error" id="messageError"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message →</button>
-            <div class="form-success" id="formSuccess">
-              ✅ Message received! I'll get back to you soon.
-            </div>
-          </form>
-          <div class="contact-info">
-            <div class="contact-item">
-              <span class="contact-icon">📧</span>
-              <div>
-                <p class="contact-label">Email</p>
+            <div class="detail-item">
+              <span class="detail-label">Email</span>
+              <span class="detail-value">
                 <a href="mailto:mohammedalroomi@gmail.com">mohammedalroomi@gmail.com</a>
+              </span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Status</span>
+              <span class="detail-value status-open">Open to Opportunities</span>
+            </div>
+          </div>
+          <div class="achievements-strip">
+            <div class="achievement-badge">
+              <span class="badge-icon">🏆</span>
+              <span>McKinsey EDAD<br/>Competition Winner</span>
+            </div>
+            <div class="achievement-badge">
+              <span class="badge-icon">🎓</span>
+              <span>Dean's<br/>Honor List</span>
+            </div>
+            <div class="achievement-badge">
+              <span class="badge-icon">⚡</span>
+              <span>Early<br/>KFUPM Admission</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <h2 class="section-title">My <span class="accent">Projects</span></h2>
+      <p class="section-sub">Academic projects spanning data science, AI, and database systems.</p>
+
+      <!-- FEATURE 2: Project Filter — click a category to show only matching projects -->
+      <div class="filter-bar">
+        <span class="filter-hint">Filter by category:</span>
+        <div class="filter-buttons" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="data-science">Data Science</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="database">Database</button>
+        </div>
+      </div>
+      <p class="empty-state" id="emptyState" hidden>No projects found for this category.</p>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <div class="project-card" data-category="data-science">
+          <div class="project-image">
+            <img src="assets/images/Project1.webp" alt="Data Science Project"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-img-fallback"><span>📊</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">ISE291</span>
+            </div>
+            <h3 class="project-title">Predictive Analytics Model</h3>
+            <p class="project-desc">
+              Developed as part of ISE291 (Introduction to Data Science), this project covered
+              the full data science lifecycle — data cleaning, exploratory analysis, feature engineering,
+              and training predictive models using regression and classification techniques to extract
+              meaningful insights from real-world datasets.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="ai">
+          <div class="project-image">
+            <img src="assets/images/Project2.jpeg" alt="AI Project"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-img-fallback"><span>🤖</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">AI</span>
+              <span class="tag">COE292</span>
+            </div>
+            <h3 class="project-title">AI Classification System</h3>
+            <p class="project-desc">
+              Built as part of COE292 (Introduction to Artificial Intelligence), our team designed
+              and implemented an AI classification pipeline — covering model architecture selection,
+              training, hyperparameter tuning, and performance evaluation. Iteratively improved accuracy
+              through experimentation and analysis.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="database">
+          <div class="project-image">
+            <img src="assets/images/Project3.jpeg" alt="Database Systems Project"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-img-fallback"><span>🗄️</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">SQL</span>
+              <span class="tag">MySQL Workbench</span>
+              <span class="tag">ERD</span>
+              <span class="tag">ICS321</span>
+            </div>
+            <h3 class="project-title">Relational Database System</h3>
+            <p class="project-desc">
+              Designed and built a fully normalized relational database for ICS321 (Database Systems)
+              using MySQL Workbench. The project spanned ER diagram modeling, schema normalization,
+              complex SQL queries, stored procedures, triggers, and performance optimization
+              through proper indexing strategies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="section-title">My <span class="accent">Experience</span></h2>
+      <p class="section-sub">Roles, programs, and responsibilities that shaped my professional path.</p>
+      <div class="experience-list">
+
+        <div class="exp-card">
+          <div class="exp-left">
+            <div class="exp-logo">Mc</div>
+            <div class="exp-line"></div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">McKinsey EDAD Program</h3>
+                <p class="exp-company">McKinsey &amp; Company</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Nov 2025</span>
+                <span class="exp-badge win">🏆 1st Place</span>
               </div>
             </div>
-            <div class="contact-item">
-              <span class="contact-icon">🎓</span>
+            <p class="exp-desc">
+              Completed a selective one-month program combining virtual and in-person training focused
+              on structured problem-solving, executive communication, and presentation skills.
+              Applied these skills in a concluding case competition — analyzing the case, developing
+              recommendations, and presenting a final solution as part of a team.
+              <strong>Won first place</strong> among all competing teams.
+            </p>
+            <div class="exp-tags">
+              <span class="tag">Consulting</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Case Competition</span>
+              <span class="tag">Presentation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-left">
+            <div class="exp-logo">Ok</div>
+            <div class="exp-line"></div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
               <div>
-                <p class="contact-label">University</p>
-                <p>KFUPM – Software Engineering</p>
+                <h3 class="exp-role">Product Manager — Internship</h3>
+                <p class="exp-company">Okoul</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Jun – Sep 2024</span>
+                <span class="exp-location">Dhahran, SA</span>
               </div>
             </div>
-            <div class="contact-item">
-              <span class="contact-icon">💻</span>
+            <p class="exp-desc">
+              Joined Okoul after freshman year to gain hands-on product management experience.
+              Contributed to UI design, analyzed product and user data to inform decisions,
+              and helped define product requirements. Synthesized user feedback into actionable
+              insights and supported weekly planning and delivery cycles in a fast-paced environment.
+            </p>
+            <div class="exp-tags">
+              <span class="tag">Product Management</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Figma</span>
+              <span class="tag">User Research</span>
+              <span class="tag">Agile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-left">
+            <div class="exp-logo">KF</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
               <div>
-                <p class="contact-label">GitHub</p>
-                <a href="https://github.com/MohammedAlroomi" target="_blank" rel="noopener">github.com/MohammedAlroomi</a>
+                <h3 class="exp-role">Student Advisory Council Member</h3>
+                <p class="exp-company">King Fahd University of Petroleum &amp; Minerals</p>
               </div>
+              <div class="exp-meta">
+                <span class="exp-date">Apr 2024 – Present</span>
+                <span class="exp-location">Dhahran, SA</span>
+              </div>
+            </div>
+            <p class="exp-desc">
+              Member of the Technology Committee, contributing to university-wide student experience
+              initiatives. Key contribution includes participating in the design and development of
+              the Student Advisory Council website — translating student needs into a digital solution.
+            </p>
+            <div class="exp-tags">
+              <span class="tag">Leadership</span>
+              <span class="tag">Web Development</span>
+              <span class="tag">Student Government</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+      <p class="section-sub">Have a project in mind or just want to connect? Send me a message.</p>
+      <p class="form-guide">Fill in your name, email, and message below — all fields are required before submitting.</p>
+      <div class="contact-wrapper">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5"
+              placeholder="Tell me about your project or idea..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message →</button>
+          <div class="form-success" id="formSuccess">
+            ✅ Message received! I'll get back to you soon.
+          </div>
+        </form>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <p class="contact-label">Email</p>
+              <a href="mailto:mohammedalroomi@gmail.com">mohammedalroomi@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🎓</span>
+            <div>
+              <p class="contact-label">University</p>
+              <p>KFUPM – Software Engineering</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💻</span>
+            <div>
+              <p class="contact-label">GitHub</p>
+              <a href="https://github.com/MohammedAlroomi" target="_blank" rel="noopener">github.com/MohammedAlroomi</a>
             </div>
           </div>
         </div>
