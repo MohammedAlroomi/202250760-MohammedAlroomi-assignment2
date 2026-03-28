@@ -21,6 +21,28 @@ Assignment 2 adds a layer of interactivity and data handling on top of the Assig
 
 ---
 
+## Features
+
+**Dynamic Content**
+- Personalised greeting that updates based on user name input
+- Project filter by category (All, Data Science, AI, Database)
+
+**Data Handling**
+- localStorage to save theme preference and visitor name across sessions
+- Public API integration (advice widget fetched from api.adviceslip.com)
+
+**Animations and Transitions**
+- Hover effects on buttons, project cards, and nav links
+- Fade-in effects for sections and cards on scroll
+- Animated success message on form submission
+
+**Error Handling and User Feedback**
+- Inline error messages for invalid or empty form inputs
+- Loading indicator while fetching API data
+- Friendly error message if API request fails
+
+---
+
 ## Setup Instructions
 
 No installation or build tools needed.
