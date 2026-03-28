@@ -43,4 +43,4 @@ This assignment gave me real experience with the Fetch API and async/await, incl
 
 ## Responsible Use
 
-Every decision in this project was mine. I chose the features, rejected what did not fit, and corrected what was wrong. All AI output was reviewed and modified before being included. All personal content is my own from Assignment 1. Claude and ChatGPT made the work faster, but I was the one thinking through every step.
+Every decision in this project was mine. I chose the features, rejected what did not fit, and corrected what was wrong. All AI output was reviewed and modified before being included. All personal content is my own from Assignment 1.
